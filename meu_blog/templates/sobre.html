@@ -1,0 +1,40 @@
+{% extends 'modelo.html' %}
+
+{% block title %}Sobre - Meu Blog Profissional{% endblock %}
+
+{% block content %}
+<div class="container">
+    {% for Eu in lista %}
+        <h2 class="my-4">Sobre Mim</h2>
+        <div class="row">
+            <div class="col-md-4">
+                {% if Eu.foto %}
+                    <img src="{{ Eu.foto.url }}" alt="Foto de {{ Eu.nome }}" class="img-fluid rounded-circle mb-3">
+                {% endif %}
+                <h3>{{ Eu.nome }}</h3>
+                <p><strong>Idade:</strong> {{ Eu.idade }} anos</p>
+                <p><strong>Data de Nascimento:</strong> {{ Eu.data_nascimento }}</p>
+                <p><strong>Cidade:</strong> {{ Eu.cidade }}, {{ Eu.estado }}</p>
+                <p><strong>Estado Civil:</strong> {{ Eu.estado_civil }}</p>
+                <p><strong>Email:</strong> <a href="mailto:{{ Eu.email }}">{{ Eu.email }}</a></p>
+            </div>
+            <div class="col-md-8">
+                <h4>Formação Acadêmica</h4>
+                <p><strong>{{ Eu.sobre.curso }}</strong> na {{ Eu.sobre.escola }} ({{ Eu.sobre.ano }})</p>
+
+                <h4>Interesses</h4>
+                <p>{{ Eu.sobre.interece }}</p>
+
+                <h4>Habilidades</h4>
+                <p>{{ Eu.sobre.habilidades }}</p>
+
+                <h4>Experiência Profissional</h4>
+                <p>{{ Eu.sobre.experiencia_profissional }}</p>
+
+                <h4>Projetos</h4>
+                <p>{{ Eu.sobre.projetos }}</p>
+            </div>
+        </div>
+    {% endfor %}
+</div>
+{% endblock %}
