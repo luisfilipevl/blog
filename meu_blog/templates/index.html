@@ -8,22 +8,24 @@
     <p class="lead">Aqui você encontrará informações sobre mim, meus cursos, interesses, e muito mais.</p>
 </div>
 
-<div class="row">
+<div class="row" style="margin-bottom: 100px;">
     {% for Eu in lista %}
-        <div class="col-md-5">
-            
+        <div class="col-md-4">
             {% if Eu.foto %}
                 <img src="{{ Eu.foto.url }}" alt="Foto de {{ Eu.nome }}" class="img-fluid rounded-circle mb-3" >
             {% endif %}
+        </div>
+        <div class="col-md-8" style="margin-top: 50px;">
+            
             <h3>{{ Eu.nome }}</h3>
             <p><strong>Idade:</strong> {{ Eu.idade }} ano</p>
             <p><strong>Cidade:</strong> {{ Eu.cidade }} </p>
             <p><strong>Estado:</strong>{{ Eu.estado }}</p>
-        </div>
-        <div class="col-md-8">
+        
+      
             <h3>Sobre Mim</h3>
             <p>{{ Eu.sobre.descricao }}</p>
-            <a href="sobre"><button>Mais</button></a>
+            <a href="sobre"><button type="button" class="btn btn-secondary">Mais</button></a>
             <h4>Cursos Realizados</h4>
             <p><strong>{{ Eu.sobre.curso }}</strong> na {{ Eu.sobre.escola }} ({{ Eu.sobre.ano }})</p>
             
